@@ -1,0 +1,43 @@
+:root {
+  --bg-base: #12121c;
+  --bg-panel: rgba(255, 255, 255, 0.05);
+  --bg-panel-hover: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-muted: #a0a0b0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-primary: #a78bfa;
+  --accent-secondary: #f472b6;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --input-bg: rgba(0, 0, 0, 0.2);
+  --card-bg: rgba(18, 18, 28, 0.85);
+  --danger-bg: rgba(239, 68, 68, 0.1);
+  --danger-text: #ef4444;
+}
+
+[data-theme='light'] {
+  --bg-base: #f0f4f8;
+  --bg-panel: rgba(255, 255, 255, 0.8);
+  --bg-panel-hover: rgba(255, 255, 255, 1);
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --accent-primary: #8b5cf6;
+  --accent-secondary: #ec4899;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --danger-bg: rgba(239, 68, 68, 0.15);
+  --danger-text: #dc2626;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}

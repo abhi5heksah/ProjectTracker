@@ -1,0 +1,95 @@
+.custom-node {
+  padding: 15px;
+  border-radius: 12px;
+  min-width: 150px;
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  background: var(--card-bg);
+}
+
+.custom-node:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3);
+}
+
+/* Selected state provided by react-flow */
+.react-flow__node.selected .custom-node {
+  border: 2px solid #a78bfa;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+}
+
+.phase-node {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(67, 56, 202, 0.2));
+  border-top: 3px solid #6366f1;
+}
+
+.feature-node {
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.2), rgba(192, 38, 211, 0.2));
+  border-top: 3px solid #d946ef;
+}
+
+.task-node {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+  border-top: 3px solid #10b981;
+}
+
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.node-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.node-type {
+  color: var(--text-muted);
+}
+
+.node-body {
+  font-size: 14px;
+  text-align: center;
+}
+
+.custom-handle {
+  width: 10px;
+  height: 10px;
+  background: var(--text-main);
+  border: 2px solid var(--bg-base);
+}
+
+/* Custom Color Themes */
+.color-theme-indigo {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(67, 56, 202, 0.2)) !important;
+  border-top: 3px solid #6366f1 !important;
+}
+
+.color-theme-fuchsia {
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.2), rgba(192, 38, 211, 0.2)) !important;
+  border-top: 3px solid #d946ef !important;
+}
+
+.color-theme-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)) !important;
+  border-top: 3px solid #10b981 !important;
+}
+
+.color-theme-orange {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(234, 88, 12, 0.2)) !important;
+  border-top: 3px solid #f97316 !important;
+}
+
+.color-theme-rose {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.2), rgba(225, 29, 72, 0.2)) !important;
+  border-top: 3px solid #f43f5e !important;
+}
