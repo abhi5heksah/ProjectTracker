@@ -6,6 +6,7 @@ import api from '../../api/axios';
 import './Dashboard.css';
 import { LogOut, Plus, Trash2, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
+import { Skeleton } from 'boneyard-js/react';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -73,49 +74,49 @@ const Dashboard = () => {
           </button>
         </div>
 
-        {loading ? (
-          <div className="loading-state">Loading projects...</div>
-        ) : projects.length === 0 ? (
-          <div className="empty-state">
-            <p>You don't have any projects yet.</p>
-            <button onClick={() => setShowModal(true)} className="btn-primary">
-              Create your first project
-            </button>
-          </div>
-        ) : (
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <div 
-                key={project.id} 
-                className="project-card glass-panel"
-                onClick={() => navigate(`/project/${project.id}`)}
-              >
-                <div className="project-card-content">
-                  <h3>{project.name}</h3>
-                  <p>{project.description || 'No description provided.'}</p>
+        <Skeleton name="projects-dashboard" loading={loading}>
+          {projects.length === 0 ? (
+            <div className="empty-state">
+              <p>You don't have any projects yet.</p>
+              <button onClick={() => setShowModal(true)} className="btn-primary">
+                Create your first project
+              </button>
+            </div>
+          ) : (
+            <div className="projects-grid">
+              {projects.map((project) => (
+                <div 
+                  key={project.id} 
+                  className="project-card glass-panel"
+                  onClick={() => navigate(`/project/${project.id}`)}
+                >
+                  <div className="project-card-content">
+                    <h3>{project.name}</h3>
+                    <p>{project.description || 'No description provided.'}</p>
+                  </div>
+                  <div className="project-card-footer">
+                    <span className="project-role">
+                      {project.ownerId === user?.id ? 'Owner' : 'Member'}
+                    </span>
+                    {project.ownerId === user?.id && (
+                      <button 
+                        className="btn-icon-danger"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if(confirm('Are you sure you want to delete this project?')) {
+                            deleteProject(project.id);
+                          }
+                        }}
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    )}
+                  </div>
                 </div>
-                <div className="project-card-footer">
-                  <span className="project-role">
-                    {project.ownerId === user?.id ? 'Owner' : 'Member'}
-                  </span>
-                  {project.ownerId === user?.id && (
-                    <button 
-                      className="btn-icon-danger"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if(confirm('Are you sure you want to delete this project?')) {
-                          deleteProject(project.id);
-                        }
-                      }}
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+        </Skeleton>
       </main>
 
       {showModal && (
